@@ -1,4 +1,4 @@
-# Mini Pipeline
+# Intro To Sequence Processing
 # Introduction
 
 The aim of this exercise is to help you understand the basics of shell scripting, a skill that is used in genomic pipeline development
