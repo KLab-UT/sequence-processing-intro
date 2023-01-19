@@ -56,12 +56,14 @@ IF you don't know how to use terminal, don't have a github account, or don't kno
 
 # Completing the exercise
 
-Your goal in this exercise is to (1) summarize data from a DNA sequence alignment, (2) create and analyze an amino acid alignment, and (3) create a directory for each sample containing the DNA sequence and amino acid sequence. Each of these objectives is broken up below.
+Your goal in this exercise is to (1) summarize data from a DNA sequence alignment, (2) create and analyze an amino acid alignment, and (3) create a directory for each sample containing the DNA sequence and amino acid sequence. These objectives should be completed by running a single script (but it can run other scripts). Each of these objectives is broken up below.
 
 > note: This readme contains several code blocks. Blocks with a ```$``` prompt refer to command that can be executed using bash (or generally other shell languages). Blocks with a ```>>>``` prompt refer to python code. Blocks without a prompt refer to content within a text file.
 
 ## Summarize data from a DNA sequence alignment
 You should create a script that will process a DNA sequence alignment in fasta format. This script should out put a file called "log.txt" that contains (1) the number of sequences, (2) the number of unique sampling dates, and (3) the number of variable sites (see below for definition of variable site). 
+
+> note: You can use any scripting language for this objective. You will draw from computer science skills you have learned in classes up to this point (e.g., storing information in collections, performing simple calculations).
 
 #### What is a FASTA file?
 A fasta file stores genetic sequence data and a descriptive header for each sequence. A fasta file can have a single header or multiple headers. The header line can contain various items pertaining to the sequence, such as the chromosome, species, and individual ID. A header line is demarcated by the '>' character, and the following line(s) contain the sequence information pertaining to this specific header. The sequence line should only contain information pertaining to the sequence described by the previous header. A single fasta file can contain multiple sequences. Here is an example of what this can look like:
@@ -91,6 +93,10 @@ $ grep '>' ExampleFasta.fasta | wc -l
 ```
 
 ## Create and analyze an amino acid alignment
+You should create a script that will convert the DNA sequence alignment in fasta format to an amino acid sequence alignment in fasta format. You should then add the number of variable sites in the protein alignment to the "log.txt" file.
+
+> note: You can use any scripting language and tools to do this, but I recommend writing the script in python.
+
 Above you became familiar with a DNA sequence alignment stored in fasta format. Protein sequences can also be stored in fasta format. The extension ".fasta" is general, and can be used for any type of sequence alignment (DNA, RNA, or protein). Alternative extensions can specify whether you are working with nucleotides (".fna") or amino acids (".faa"). For part of this activity, you will convert the DNA sequences to amino acid sequences. You will use the skills you have developed in computer science along with the knowledge you've gained from biology classes to write a script in python that will translate these sequences.
 
 Although there are several ways to address this exercise, I recommend using the python package [Biopython](https://biopython.org/). This package contains tools that can be used in computational molecular biology. [Here](http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec2) is a useful tutorial for using Biopython. I will draw from this tutorial below.
@@ -136,15 +142,33 @@ Also like a python string, you can do slices iwth a start, stop, and stride. For
 >>> my_seq[1::3]
 >>> my_seq[2::3]
 ```
+The Seq object differs from the Python string in the methods it supports. You can’t do this with a plain string:
+```
+>>> my_seq.complement()
+>>> my_seq.reverse_complement()
+>>> my_seq.transcribe()
+>>> my_seq.translate()
+```
+And, although not necessary to complete this project, you can also process entire fasta files with biopython
+```
+>>> fna_seqs = {}
+>>> from Bio import SeqIO
+>>> for seq_record in SeqIO.parse("orchid.fasta", "fasta"):
+>>>     fna_seqs[seq_record.id] = seq_record
+```
+## Create a directory for each sample containing the DNA sequence and amino acid sequence
+You should create a directory for each sequence that contains two files: (1) a fasta file with that sample's DNA sequence and (2) a fasta file with that sample's amino acid sequence.
 
+# Final product
+#### What you started with
+1. A DNA sequence alignment in fasta format
+#### What you end with
+1. A text file called "log.txt" with (1) the number of unique sequences, (2) the number of unique sampling dates, (3) the number of variable sites in the DNA sequence, and (4) the number of variable sites in the protein sequence.
+1. A protein alignment file in fasta format
+1. A directory for each sequence that contains its individual DNA sequence and protein sequence
 
-
-
-Using the fasta file within this repository, you will create four scripts:
-1. A script titled "file_processing.sh"
-1. A script titled "genetic_information.sh"
-1. A script titled "main.sh"
-
+# Final recommendations
+Use ExampleAlignment.fasta as a test fasta file- but this will not be the file that will be used to test your script. I would draw out your approach using pseudocode before you start coding. What are the primary tasks you need to address? What kind of script will you write to address that task? You got this!
 
 
 
