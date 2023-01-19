@@ -58,7 +58,9 @@ IF you don't know how to use terminal, don't have a github account, or don't kno
 
 Your goal in this exercise is to (1) summarize data from a DNA sequence alignment, (2) create and analyze an amino acid alignment, and (3) create a directory for each sample containing the DNA sequence and amino acid sequence. Each of these objectives is broken up below.
 
-1. Summarize data from a DNA sequence alignment
+> note: This readme contains several code blocks. Blocks with a ```$``` prompt refer to command that can be executed using bash (or generally other shell languages). Blocks with a ```>>>``` prompt refer to python code. Blocks without a prompt refer to content within a text file.
+
+## Summarize data from a DNA sequence alignment
 You should create a script that will process a DNA sequence alignment in fasta format. This script should out put a file called "log.txt" that contains (1) the number of sequences, (2) the number of unique sampling dates, and (3) the number of variable sites (see below for definition of variable site). 
 
 #### What is a FASTA file?
@@ -85,13 +87,31 @@ Let's look at a sequence alignment. At the command line you can examine this fil
 Once you exit vim, you can count the number of sequences within this file from the command line by counting the number of headers:
 
 ```
-grep '>' ExampleFasta.fasta | wc -l
+$ grep '>' ExampleFasta.fasta | wc -l
 ```
 
-2. Create and analyze an amino acid alignment
+## Create and analyze an amino acid alignment
 Above you became familiar with a DNA sequence alignment stored in fasta format. Protein sequences can also be stored in fasta format. The extension ".fasta" is general, and can be used for any type of sequence alignment (DNA, RNA, or protein). Alternative extensions can specify whether you are working with nucleotides (".fna") or amino acids (".faa"). For part of this activity, you will convert the DNA sequences to amino acid sequences. You will use the skills you have developed in computer science along with the knowledge you've gained from biology classes to write a script in python that will translate these sequences.
 
-Although there are several ways to address this exercise, I recommend using the python package [Biopython](https://biopython.org/). This package contains tools that can be used in computational molecular biology. 
+Although there are several ways to address this exercise, I recommend using the python package [Biopython](https://biopython.org/). This package contains tools that can be used in computational molecular biology. [Here](http://biopython.org/DIST/docs/tutorial/Tutorial.html#sec2) is a useful tutorial for using Biopython. I will draw from this tutorial below.
+
+#### Install Biopython
+```
+$ conda install -c conda-forge biopython
+```
+or
+```
+$ pip install biopython
+```
+
+> note: This is assuming you use the python package manager conda or miniconda or have pip installed. If you don't have either of these installed, I recommend miniconda (installation instructions [here](https://docs.conda.io/en/latest/miniconda.html)).
+
+Now within your python scripts you can import biopython using the following:
+
+```
+>>> import Bio
+>>>  from Bio.Seq import Seq
+```
 
 Using the fasta file within this repository, you will create four scripts:
 1. A script titled "file_processing.sh"
