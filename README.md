@@ -110,8 +110,35 @@ Now within your python scripts you can import biopython using the following:
 
 ```
 >>> import Bio
->>>  from Bio.Seq import Seq
+>>> from Bio.Seq import Seq
 ```
+
+You can now create Seq objects using biopython. Try it out
+```
+>>> my_seq = Seq("ATGCATTAACTAGAT")
+>>> nuc_string = "ATGCATGTATAC"
+>>> my_seq2 = Seq(nuc_string)
+>>> print(my_seq)
+>>> print(my_seq2)
+>>> my_seq_str = str(my_seq)
+>>> print(my_seq_str)
+```
+In most ways, we can deal with Seq objects as if they were normal python strings:
+```
+>>> for index, letter in enumerate(my_seq):
+>>>     print(index, letter)
+>>> 
+>>> print(len(my_seq))
+```
+Also like a python string, you can do slices iwth a start, stop, and stride. For example, we can get the first, second, and third codon positions of this DNA sequence:
+```
+>>> my_seq[0::3]
+>>> my_seq[1::3]
+>>> my_seq[2::3]
+```
+
+
+
 
 Using the fasta file within this repository, you will create four scripts:
 1. A script titled "file_processing.sh"
