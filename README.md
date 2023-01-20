@@ -163,7 +163,7 @@ You should create a directory for each sequence that contains two files: (1) a f
 #### What you started with
 1. A DNA sequence alignment in fasta format
 #### What you end with
-1. A text file called "log.txt" with (1) the number of unique sequences, (2) the number of unique sampling dates, (3) the number of variable sites in the DNA sequence, and (4) the number of variable sites in the protein sequence.
+1. A text file called "log.txt" with (1) the number of samples, (2) the number of unique sampling dates, (3) the number of variable sites in the DNA sequence, and (4) the number of variable sites in the protein sequence.
 1. A protein alignment file in fasta format
 1. A directory for each sequence that contains its individual DNA sequence and protein sequence
 
