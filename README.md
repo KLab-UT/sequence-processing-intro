@@ -61,7 +61,7 @@ Your goal in this exercise is to (1) summarize data from a DNA sequence alignmen
 > note: This readme contains several code blocks. Blocks with a ```$``` prompt refer to command that can be executed using bash (or generally other shell languages). Blocks with a ```>>>``` prompt refer to python code. Blocks without a prompt refer to content within a text file.
 
 ## Summarize data from a DNA sequence alignment
-You should create a script that will process a DNA sequence alignment in fasta format. This script should out put a file called "log.txt" that contains (1) the number of sequences, (2) the number of unique sampling dates, and (3) the number of variable sites (see below for definition of variable site). 
+You should create a script that will process a DNA sequence alignment in fasta format. This script should out put a file called "log.txt" that contains (1) the number of samples, (2) the number of unique sampling dates, and (3) the number of variable sites (see below for definition of variable site). 
 
 > note: You can use any scripting language for this objective. You will draw from computer science skills you have learned in classes up to this point (e.g., storing information in collections, performing simple calculations).
 
