@@ -20,7 +20,7 @@ IF you don't know how to use terminal, don't have a github account, or don't kno
 
 1.  Login to your [Github](https://github.com/) account.
 
-1.  Fork [this repository](https://github.com/KLab-UT/4310-pretest) by
+1.  Fork [this repository]([https://github.com/KLab-UT/4310-pretest](https://github.com/KLab-UT/sequence-processing-intro)) by
     clicking the 'Fork' button on the upper right of the page.
 
     After a few seconds, you should be looking at *your* 
@@ -56,7 +56,7 @@ IF you don't know how to use terminal, don't have a github account, or don't kno
 
 # Completing the exercise
 
-Your goal in this exercise is to (1) summarize data from a DNA sequence alignment, (2) create and analyze an amino acid alignment, and (3) create a directory for each sample containing the DNA sequence and amino acid sequence. These objectives should be completed by running a single script (but it can run other scripts). Each of these objectives is broken up below.
+Your goal in this exercise is to create coding scripts that will (1) summarize data from a DNA sequence alignment, (2) create and analyze an amino acid alignment, and (3) create a directory for each sample containing the DNA sequence and amino acid sequence. These objectives should be completed by running a single script (but it can run other scripts). Each of these objectives is broken up below.
 
 > note: This readme contains several code blocks. Blocks with a ```$``` prompt refer to command that can be executed using bash (or generally other shell languages). Blocks with a ```>>>``` prompt refer to python code. Blocks without a prompt refer to content within a text file.
 
@@ -156,13 +156,13 @@ And, although not necessary to complete this project, you can also process entir
 >>> for seq_record in SeqIO.parse("orchid.fasta", "fasta"):
 >>>     fna_seqs[seq_record.id] = seq_record
 ```
-## Create a directory for each sample containing the DNA sequence and amino acid sequence
-You should create a directory for each sequence that contains two files: (1) a fasta file with that sample's DNA sequence and (2) a fasta file with that sample's amino acid sequence.
 
-# Final product
-#### What you started with
+# Your Final product
+You will create a script that will process an alignment of DNA coding sequence (i.e., a sequence alignment where each sequence starts with a "start" codon and ends with a "stop" codon). The script can (and should) call other scripts (for example, the user might run "main.sh" which in turn runs "count_variable_sites.py" and "alignment_parser.sh").
+#### What you start with
 1. A DNA sequence alignment in fasta format
 #### What you end with
+Your script must generate the following:
 1. A text file called "log.txt" with (1) the number of samples, (2) the number of unique sampling dates, (3) the number of variable sites in the DNA sequence, and (4) the number of variable sites in the protein sequence.
 1. A protein alignment file in fasta format
 1. A directory for each sequence that contains its individual DNA sequence and protein sequence
